@@ -1,0 +1,39 @@
+*{box-sizing : border-box;}
+.grid{
+    display: grid;
+    padding: 0.5rem;
+}
+.nav{
+    grid-template-columns: auto auto auto auto auto auto;
+}
+.logoimg{
+    width: 80%;
+}
+.center{
+    justify-self: center;
+    align-self: center;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+a{
+    color: black;
+}
+.special{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: blue;
+}
+.selection{
+    grid-template-columns: auto auto auto;
+}
+.footp{
+    width: 50%;
+    margin-bottom: 0.25rem;
+}
+.grid-col{
+    padding: 0.25rem 0.5rem
+}
