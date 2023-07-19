@@ -5,10 +5,10 @@ function Header(){
         <>
     <div className="grid nav">
       <img src={logo} alt="Logo" className="logoimg"/>
-<a href="index.html" target="_blank" className="center">Home</a>
-<a href="recipes.html" className="center">Recipes</a>
-<a href="index.html" className="center">Blogs</a>
-<a href="index.html" className="center">Shop</a>
+<a href={"/"} className="center">Home</a>
+<a href={`recipes`} className="center">Recipes</a>
+<a href={"/"} className="center">Blogs</a>
+<a href={`/`} className="center">Shop</a>
 <span className="material-icons center">
             search
             </span>

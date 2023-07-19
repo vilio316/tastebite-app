@@ -1,6 +1,3 @@
-import { useState, useRef, useEffect } from 'react'
-import Header from './components/Header';
-import Footer from "./components/Foot"
 import corny from "/src/assets/Color Styles.png"
 function App(){
 
@@ -74,8 +71,7 @@ function App(){
 
 return (
   <>
-  <Header/>
- 
+  <div>
   <Card name="Shujinko Wins" breeve="A corny cheesecake with love and joy x"/>
   <Category name="Sweet Tooth"/>
   <Category name="Slinko"/>
@@ -83,7 +79,7 @@ return (
   <Signup></Signup>
   <Collections/>
   <LatestRecipes/>
-  <Footer/>
+  </div>
   </>
 )
 }
