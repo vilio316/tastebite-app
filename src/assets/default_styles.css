@@ -1,4 +1,4 @@
-*{box-sizing : border-box;}
+*{box-sizing : border-box; font-family: "Indie Flower", sans-serif;}
 .grid{
     display: grid;
     padding: 0.5rem;
@@ -36,4 +36,10 @@ a{
 }
 .grid-col{
     padding: 0.25rem 0.5rem
+}
+.bold{
+    font-weight: bold;
+}
+.mealname_bold{
+    font-size: 2.5rem; font-weight: bold;
 }

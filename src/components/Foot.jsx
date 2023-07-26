@@ -22,11 +22,11 @@ function Footer() {
             <p>Privacy Policy</p>
         </div>
         <div className="grid-col">
-        <h4>Legal</h4>
-            <p>Copyright</p>
-            <p>Cookies</p>
-            <p>Terms And Conditions</p>
-            <p>Privacy Policy</p>
+        <h4>Shop</h4>
+            <p>Merchandise</p>
+            <p>CookBooks</p>
+            <p>Cooking Utensils</p>
+            <p>Misc.</p>
         </div>
         </div>
         <div className="grid" style={{gridTemplateColumns: "auto auto"}}>
