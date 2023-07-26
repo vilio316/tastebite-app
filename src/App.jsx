@@ -4,19 +4,19 @@ import corny from "/src/assets/Color Styles.png"
 function App(){
   
   function Card(){
-    let [random, changeRandom] = useState([])
-    useEffect(()=> async function randomMeal(){
+    let [random, changeRandom] = useState([]);
+    function randomMeal(){
       let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
       let searchURL = `${baseURL}random.php?`
-      let res = await fetch(`${searchURL}`)
-      const data_meal= await res.json();
+      fetch(`${searchURL}`).then((res)=> res.json()).then((data_meal)=>{
       let randMeal = data_meal.meals[0];
       changeRandom([...random, randMeal.strMeal, randMeal.strMealThumb, randMeal.idMeal])
-      
-  },[])
+    }
+      )
+  }
+    useEffect(()=> randomMeal() ,[])
     return(
       <>
-      
       <div className="grid card">
         <div className="grid" style={{placeItems:"center"}}>
         <img src={`${random[1]}`} alt={`${random[0]}`} className="foodshot"></img>
