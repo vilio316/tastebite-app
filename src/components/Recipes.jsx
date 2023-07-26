@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
     export async function imageHunter(params){   
@@ -8,7 +8,6 @@ import { useLoaderData, useParams } from "react-router-dom";
     const data = await res.json();
     return data.meals
 }
-
 function RecipeSearch(){
     let leet = useParams();
     console.table(leet);
@@ -82,3 +81,25 @@ export async function fetchRecipe(id){
             </>
         )
     }
+export function RecipesHome(){
+    return(
+        <>
+        <div>
+        <h1>All Recipes</h1>
+        <hr/>
+        </div>
+        <div>
+            <h2>Search by Ingredient</h2>
+        </div>
+        <div>
+            <h2>Search by Category</h2>
+        </div>
+        <div>
+            <h2>Top Recipes for You</h2>
+        </div>
+        <div>
+            <h2>Desserts</h2>
+        </div>
+        </>
+    )
+}

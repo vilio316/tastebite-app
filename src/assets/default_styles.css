@@ -43,3 +43,15 @@ a{
 .mealname_bold{
     font-size: 2.5rem; font-weight: bold;
 }
+.foodshot{
+    width: 80%;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem
+}
+
+
+@media screen and (max-width: 768px){
+    html{
+        font-size: 10px;
+    }
+}

@@ -4,7 +4,7 @@ import App from './App.jsx'
 import AboutUs from './components/About.jsx'
 import CompErr from './components/404Comp.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
-import RecipeSearch, {fetchRecipe, imageHunter, Recipe}  from './components/Recipes.jsx'
+import RecipeSearch, {fetchRecipe, imageHunter, Recipe, RecipesHome}  from './components/Recipes.jsx'
 import Header from './components/Header.jsx'
 import Footer from './components/Foot.jsx'
 
