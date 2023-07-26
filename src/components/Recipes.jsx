@@ -8,6 +8,13 @@ import { useLoaderData, useParams } from "react-router-dom";
     const data = await res.json();
     return data.meals
 }
+export async function categoryHunt(params){   
+    let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
+    let searchURL = `${baseURL}filter.php?c=`
+    let res = await fetch(`${searchURL}${params}`)
+    const data = await res.json();
+    return data.meals
+}
 function RecipeSearch(){
     let leet = useParams();
     console.table(leet);
@@ -38,6 +45,36 @@ return(
     )
 }
 export default RecipeSearch;
+
+export function CategorySearch(){
+    let leet = useParams();
+    console.table(leet);
+    const flight = useLoaderData();
+    console.log(flight);
+    const jaxyy= flight.length;
+
+    function SearchResults(props){
+        let array = props.input;
+        return(
+            <div className="grid" style={{gridTemplateColumns: "auto auto auto auto auto"}}>
+            {array.map((photo) => <div key={photo.idMeal} className="meal_card">
+                <img src={photo.strMealThumb} alt={`${photo.strMeal}`}  width={"80%"}/>
+                <p className={`indented`}><a href={`/recipes/${leet.categ}/${photo.idMeal}`}>{photo.strMeal}</a></p>
+                </div>)}
+            
+            </div>
+        )
+        }
+return(
+        <>
+        <div className="grid" style={{gridTemplateColumns: "70% auto", alignItems:"center"}}>
+        <h1>Recipes: <span style={{textTransform : "capitalize"}}>{leet.categ}</span> </h1>
+        <p style={{justifySelf: "end"}}><span className="bold">{`${jaxyy}`}</span>Recipes</p>
+        </div>
+        <SearchResults input={flight}/>
+        </>
+    )
+}
 export async function fetchRecipe(id){
         let baseURL = `https://www.themealdb.com/api/json/v1/1/`
         let id_URL = `lookup.php?i=`
