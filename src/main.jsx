@@ -4,7 +4,8 @@ import App from './App.jsx'
 import AboutUs from './components/About.jsx'
 import CompErr from './components/404Comp.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
-import RecipeSearch, {fetchRecipe, imageHunter, Recipe, RecipesHome, categoryHunt, CategorySearch}  from './components/Recipes.jsx'
+import RecipeSearch, {Recipe, RecipesHome, CategorySearch}  from './components/Recipes.jsx'
+import { imageHunter, categoryHunt, fetchRecipe } from './components/loaders.js'
 import Header from './components/Header.jsx'
 import Footer from './components/Foot.jsx'
 
@@ -15,7 +16,7 @@ const routerTest = createBrowserRouter([
     errorElement: <CompErr/>,
   },
   {
-    path: "/recipes",
+    path: "/recipe_homepage",
     element: <RecipesHome/>,
     errorElement: <CompErr/>,
   },

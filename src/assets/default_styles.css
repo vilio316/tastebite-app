@@ -1,4 +1,4 @@
-*{box-sizing : border-box; font-family: "Indie Flower", sans-serif;}
+*{box-sizing : border-box; font-family: "Indie Flower", sans-serif; font-weight: 600;}
 .grid{
     display: grid;
     padding: 0.5rem;
@@ -48,9 +48,28 @@ a{
     border-radius: 1rem;
     padding: 0.25rem 0.5rem
 }
+a{
+    text-decoration: none;
+}
+a:hover{
+    font-style: italic;
+}
+.link{
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 0.25rem;
+    display: inline-block;
+    width: 100%;
+}
+.six_cols{
+    grid-template-columns: auto auto auto auto auto auto;
+}
+.centered{
+    place-items: center;
+}
 .card{
     place-items: center;
-    grid-template-columns: 50% 30%;
+    grid-template-columns: 50% 40%;
     background-color: #FFD7C9;
     border-radius: 1.5rem;
 } .card img{
@@ -62,8 +81,9 @@ img{
 img:hover{
     opacity: 0.55;
 }
-.indented{
+.instructions{
     text-indent: 1.5rem;
+    line-height: 2rem;
 }
 .mega{
     font-size: 5rem;
@@ -72,4 +92,10 @@ img:hover{
     html{
         font-size: 10px;
     }
+}
+.food-text{
+    padding: 0.25rem 0.5rem;
+}
+.grid{
+    grid-template-columns: auto;
 }

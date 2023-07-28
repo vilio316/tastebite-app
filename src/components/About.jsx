@@ -9,7 +9,7 @@ import placehold from "/src/assets/search_results.png"
             <img src={placehold} width={"25%"}/>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim tempore aliquam facere eos debitis! Odio iusto et natus dolore dolor vel reprehenderit! Numquam libero placeat a natus non, tempore enim.</p>
         </div>
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex", placeItems: "center"}}>
         <div>
             <h2>Simple, Friendly and Easy Recipes for All</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, provident asperiores. Quo laboriosam eius ullam reiciendis optio iusto repudiandae asperiores nisi explicabo porro pariatur error, facere laudantium non provident recusandae?</p>

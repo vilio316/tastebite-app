@@ -21,7 +21,9 @@ function App(){
         <div className="grid" style={{placeItems:"center"}}>
         <img src={`${random[1]}`} alt={`${random[0]}`} className="foodshot"></img>
         </div>
+        <div>
         <p className="mega"><a href={`/recipes/random/${random[2]}`}>{random[0]}</a></p>
+      </div>
       </div>
       </>
     )
@@ -36,7 +38,7 @@ function App(){
       let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
       let searchURL = `${baseURL}filter.php?c=`
       fetch(`${searchURL}${cat}`).then((res)=> res.json()).then((data_cats)=>{ 
-      let first_data = data_cats.meals[0];
+      let first_data = data_cats.meals[3];
       let second_data = data_cats.meals[1];
       let third_data = data_cats.meals[2];
       changeFirst([...first, first_data.strMeal, first_data.strMealThumb, first_data.idMeal])
@@ -48,26 +50,26 @@ function App(){
   useEffect(()=> categorySearch(cat_name), [])
     return(
       <>
-      <h2>{cat_name}</h2>
+      <h2><a style={{fontSize: "1.75rem"}}href={`/recipes/categories/${cat_name}`}>{cat_name}</a></h2>
       <div className='selection grid'>
       <div>
         <div>
         <img src={first[1]} className="foodshot"/>
         </div>
-        <h4><a href={`/recipes/${cat_name}/${first[2]}`}>{first[0]}</a></h4>
+        <a className="link"href={`/recipes/${cat_name}/${first[2]}`}>{first[0]}</a>
       </div>
 
       <div>
         <div>
         <img src={second[1]} className="foodshot"/>
         </div>
-        <h4><a href={`/recipes/${cat_name}/${second[2]}`}>{second[0]}</a></h4>
+        <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{second[0]}</a>
       </div>
 
       <div>
         <div> <img src={third[1]} className="foodshot"/>
         </div>
-        <h4><a href={`/recipes/${cat_name}/${second[2]}`}>{third[0]}</a></h4>
+        <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{third[0]}</a>
       </div>
       </div>
       </>
@@ -80,7 +82,7 @@ function App(){
       let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
       let searchURLCats = `${baseURL}filter.php?c=${search}`;
       fetch(searchURLCats).then((res)=> res.json()).then((data)=>{
-        addCategory([...categories, data.meals[1].strMealThumb])
+        addCategory([...categories, data.meals[2].strMealThumb])
         }
       )
        }
@@ -91,17 +93,18 @@ function App(){
       <div style={{height: '80%', display:"flex", placeItems:"center", padding:"0.5rem 0.25rem"}}>
         <img src={categories} alt={name} className="foodshot"/>
         </div>
-        <a href={`/recipes/categories/${name}`}>{name}</a>
+        <a className="link" href={`/recipes/categories/${name}`}>{name}</a>
     </div>
     )
 }
 return (
   <>
     <Card/>
+    <h1 style={{textAlign: "center", fontSize: "2.5rem"}}>Top Recipes</h1>
   <Category name="Seafood"/>
   <Category name="Dessert"/>
-  <h2>Popular Categories</h2>
-  <div className="grid" style={{gridTemplateColumns:'auto auto auto auto auto auto'}}>
+  <span style={{fontSize: "1.75rem", fontWeight: "bold"}}>Popular Categories</span>
+  <div className="grid six_cols">
   <Popular name="Beef"/>
   <Popular name="Breakfast"/>
   <Popular name="Vegan"/>
@@ -138,8 +141,7 @@ function Collections(){
   return(
     <>
     <h2>Handpicked Collections</h2>
-    <div style={{display:"grid", gridTemplateColumns:"auto auto auto",
-  gridTemplateRows: "auto auto"}}>
+    <div style={{display:"grid", gridTemplateColumns:"auto auto auto"}}>
 <div>
         <img src={corny} width= {"30%"}/>
         <h4>Bisht Soup</h4>
