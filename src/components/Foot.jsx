@@ -2,11 +2,12 @@ import logo from "/src/assets/logo.svg"
 function Footer() {
     return(
         <>
-        <div className="grid grid-col" style={{gridTemplateColumns: "50% 20% auto auto"}}>
-        <div className="grid" style={{justifyContent: "center"}}>
+        <div className="grid grid-col">
+        <div className="grid" style={{justifyContent: "center", placeItems:"center"}}>
             <div style={{width: "50%",}}><img src={logo} alt="TasteBite" className="logoimg"/></div>
             <p className="footp">"On the other hand, we denounce with righteous indignation the ways and pursuits of men who allow themselves to be ruled by the pursuits of the moment"</p>
         </div>
+        <div style={{gridTemplateColumns: "auto auto auto", display: "grid"}}>
         <div className="grid-col">
          <h4>TasteBite</h4>
          <p>Recipes</p>
@@ -37,6 +38,7 @@ function Footer() {
                 <a>IG</a>
                 <a>SC</a>
             </div>
+        </div>
         </div>
         </>
     )

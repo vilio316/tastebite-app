@@ -3,8 +3,8 @@
     display: grid;
     padding: 0.5rem;
 }
-.nav{
-    grid-template-columns: auto auto auto auto auto auto;
+body{
+    position: relative;
 }
 .logoimg{
     width: 80%;
@@ -40,6 +40,27 @@ a{
 .bold{
     font-weight: bold;
 }
+.meal_card{
+    margin: 0.5rem 0.25rem;
+}
+ul{
+    padding : 0;
+}
+.five_cols{
+    grid-template-columns: auto auto auto auto auto;
+}
+.two_cols{
+    grid-template-columns: 60% auto;
+}
+h2{
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+.image_holder{
+    height: 80%;
+    display: grid;
+    place-items: center;
+}
 .mealname_bold{
     font-size: 2.5rem; font-weight: bold;
 }
@@ -51,8 +72,14 @@ a{
 a{
     text-decoration: none;
 }
+.nav a{
+    padding: 0.5rem 0.25rem;
+}
 a:hover{
     font-style: italic;
+}
+.mega a{
+    text-align: justify;
 }
 .link{
     font-size: 1.5rem;
@@ -61,11 +88,14 @@ a:hover{
     display: inline-block;
     width: 100%;
 }
-.six_cols{
+.six_cols, .nav{
     grid-template-columns: auto auto auto auto auto auto;
 }
 .centered{
     place-items: center;
+}
+.search_div{
+    grid-template-columns: 80% auto;
 }
 .card{
     place-items: center;
@@ -87,15 +117,32 @@ img:hover{
 }
 .mega{
     font-size: 5rem;
+    text-indent: 1.5rem;
 }
 @media screen and (max-width: 768px){
     html{
         font-size: 10px;
     }
+    .grid{
+        grid-template-columns: 100%;
+    }
+    .image_holder{
+        height: auto;
+    }
+    .mega{
+        margin: 2rem 0;
+    }
+    .results{
+        width: 100%;
+    }
+    ul{
+        padding: 2.5rem;
+        margin: 0;
+    }
+    .mega{
+        font-size: 3.5rem;
+    }
 }
 .food-text{
     padding: 0.25rem 0.5rem;
-}
-.grid{
-    grid-template-columns: auto;
 }

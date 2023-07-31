@@ -50,24 +50,24 @@ function App(){
   useEffect(()=> categorySearch(cat_name), [])
     return(
       <>
-      <h2><a style={{fontSize: "1.75rem"}}href={`/recipes/categories/${cat_name}`}>{cat_name}</a></h2>
+      <h2><a href={`/recipes/categories/${cat_name}`}>{cat_name}</a></h2>
       <div className='selection grid'>
       <div>
-        <div>
+        <div className="image_holder">
         <img src={first[1]} className="foodshot"/>
         </div>
         <a className="link"href={`/recipes/${cat_name}/${first[2]}`}>{first[0]}</a>
       </div>
 
       <div>
-        <div>
+        <div className="image_holder">
         <img src={second[1]} className="foodshot"/>
         </div>
         <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{second[0]}</a>
       </div>
 
       <div>
-        <div> <img src={third[1]} className="foodshot"/>
+        <div className="image_holder"> <img src={third[1]} className="foodshot"/>
         </div>
         <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{third[0]}</a>
       </div>
@@ -90,7 +90,7 @@ function App(){
     useEffect(()=> fetchCats(name), [])
     return(
     <div>
-      <div style={{height: '80%', display:"flex", placeItems:"center", padding:"0.5rem 0.25rem"}}>
+      <div className="image_holder">
         <img src={categories} alt={name} className="foodshot"/>
         </div>
         <a className="link" href={`/recipes/categories/${name}`}>{name}</a>
@@ -100,10 +100,10 @@ function App(){
 return (
   <>
     <Card/>
-    <h1 style={{textAlign: "center", fontSize: "2.5rem"}}>Top Recipes</h1>
+    <h2 style={{textAlign: "center", fontSize: "2.5rem"}}>Top Recipes</h2>
   <Category name="Seafood"/>
   <Category name="Dessert"/>
-  <span style={{fontSize: "1.75rem", fontWeight: "bold"}}>Popular Categories</span>
+  <h2 style={{fontWeight: "bold"}}>Popular Categories</h2>
   <div className="grid six_cols">
   <Popular name="Beef"/>
   <Popular name="Breakfast"/>

@@ -13,10 +13,10 @@ function RecipeSearch(){
     function SearchResults(props){
         let array = props.input;
         return(
-            <div className="grid" style={{gridTemplateColumns: "auto auto auto auto auto"}}>
-            {array.map((photo) => <div key={photo.idMeal} className="meal_card">
-                <img src={photo.strMealThumb} alt={`${photo.strMeal}`}  width={"80%"}/>
-                <p><a href={`./${leet.search}/${photo.idMeal}`}>{photo.strMeal}</a></p>
+            <div className="grid five_cols">
+            {array.map((photo) => <div key={photo.idMeal} className="meal_card grid centered">
+                <img src={photo.strMealThumb} alt={`${photo.strMeal}`} className="foodshot results"/>
+                <p><a className="link" href={`./${leet.search}/${photo.idMeal}`}>{photo.strMeal}</a></p>
                 </div>)}
             
             </div>
@@ -44,10 +44,10 @@ export function CategorySearch(){
     function SearchResults(props){
         let array = props.input;
         return(
-            <div className="grid" style={{gridTemplateColumns: "auto auto auto auto auto"}}>
+            <div className="grid five_cols">
             {array.map((photo) => <div key={photo.idMeal} className="meal_card">
-                <div style={{height: "80%", placeItems:"center"}}>
-                <a href={`/recipes/${leet.categ}/${photo.idMeal}`}><img src={photo.strMealThumb} alt={`${photo.strMeal}`} className={`foodshot`}   width={"80%"}/></a>
+                <div className="image_holder">
+                <a href={`/recipes/${leet.categ}/${photo.idMeal}`} className="block"><img src={photo.strMealThumb} alt={`${photo.strMeal}`} loading="lazy" className={`foodshot`}   width={"80%"}/></a>
                 </div>
                 <a className={`link`} href={`/recipes/${leet.categ}/${photo.idMeal}`}>{photo.strMeal}</a>
                 </div>)}
@@ -81,14 +81,14 @@ return(
         }
         return(
             <>
-            <div className="grid" style={{gridTemplateColumns: "50% auto", boxShadow: "0.5rem 0.5rem #e3f1ff", borderRadius: "1rem", backgroundColor: "#ffd7C9"}}>
-                <div className="grid" style={{placeItems: "center"}}>
+            <div className="grid two_cols" style={{boxShadow: "0.5rem 0.5rem #e3f1ff", borderRadius: "1rem", backgroundColor: "#ffd7C9"}}>
+                <div className="grid centered">
                     <img src={recipe_info.strMealThumb} width={"80%"} className="foodshot"/>
                 </div>
                 <div className="food-text">
                     <p className="mealname_bold">{`${recipe_info.strMeal}`}</p>
-                    <p style={{fontSize : "1.75rem", fontWeight: "bold"}}>Ingredients</p>
-                    <ul style={{padding: 0,}}>
+                    <p style={{fontSize : "1.75rem", fontWeight: "bold", margin: "0.75rem 0"}}>Ingredients</p>
+                    <ul>
                     {ingredients.map((ingredient)=> 
                     <li key={ingredient.toLowerCase()} style={{fontSize : "1.5rem"}}>{ingredient}</li>
                     )}
@@ -119,9 +119,9 @@ export function RecipesHome(){
     return(
         <>
         <div>
-        <div className="grid" style={{placeItems: "center", height:"90%"}}>
-        <img src={recState[0]} alt={ingr} className="foodshot"/>
-        </div>
+            <div className="grid centered">
+        <img src={recState[0]} alt={ingr} className="foodshot" loading="lazy"/>
+            </div>
         <a className="link" href={`/recipes/${ingr}`}>{ingr}</a>
         </div>
         </>
@@ -143,8 +143,8 @@ export function RecipesHome(){
     return(
         <>
         <div style={{height:"100%"}}>
-        <div className="grid" style={{placeItems: "center", height: "80%"}}>
-        <img src={recState[0]} alt={ingr} className="foodshot"/>
+        <div className="grid image_holder">
+        <img src={recState[0]} alt={ingr} className="foodshot" loading="lazy"/>
         </div>
         <a className="link" href={`/recipes/categories/${ingr}`}>{ingr}</a>
         </div>
