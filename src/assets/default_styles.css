@@ -78,6 +78,11 @@ a{
 a:hover{
     font-style: italic;
 }
+.search_button{
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    align-self: end;
+}
 .mega a{
     text-align: justify;
 }
