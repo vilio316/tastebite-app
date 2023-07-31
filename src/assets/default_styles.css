@@ -120,6 +120,7 @@ img:hover{
 .instructions{
     text-indent: 1.5rem;
     line-height: 2rem;
+    font-size: 1.5rem;
 }
 .mega{
     font-size: 5rem;
@@ -127,7 +128,7 @@ img:hover{
 }
 @media screen and (max-width: 768px){
     html{
-        font-size: 10px;
+        font-size: 12px;
     }
     .grid{
         grid-template-columns: 100%;

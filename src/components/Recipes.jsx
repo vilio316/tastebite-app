@@ -96,7 +96,7 @@ return(
                 </div>
             </div>
                 <div>
-                    <p><u>Instructions</u></p>
+                    <p style={{fontSize:"1.5rem"}}><u>Instructions</u></p>
                     <p className="instructions">{recipe_info.strInstructions}</p>
                 </div>
             </>
