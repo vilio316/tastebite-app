@@ -52,24 +52,26 @@ function App(){
       <>
       <h2><a href={`/recipes/categories/${cat_name}`}>{cat_name}</a></h2>
       <div className='selection grid'>
+
       <div>
         <div className="image_holder">
-        <img src={first[1]} className="foodshot"/>
+        <a href={`/recipes/${cat_name}/${first[2]}`}><img src={first[1]} className="foodshot"/></a>
         </div>
-        <a className="link"href={`/recipes/${cat_name}/${first[2]}`}>{first[0]}</a>
+        <a className="link" href={`/recipes/${cat_name}/${first[2]}`}>{first[0]}</a>
       </div>
 
       <div>
         <div className="image_holder">
-        <img src={second[1]} className="foodshot"/>
+        <a className="block" href={`/recipes/${cat_name}/${second[2]}`}><img src={second[1]} className="foodshot"/></a>
         </div>
         <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{second[0]}</a>
       </div>
 
       <div>
-        <div className="image_holder"> <img src={third[1]} className="foodshot"/>
-        </div>
-        <a className="link" href={`/recipes/${cat_name}/${second[2]}`}>{third[0]}</a>
+        <div className="image_holder">
+         <a href={`/recipes/${cat_name}/${third[2]}`}><img src={third[1]} className="foodshot"/></a>
+         </div>
+        <a className="link" href={`/recipes/${cat_name}/${third[2]}`}>{third[0]}</a>
       </div>
       </div>
       </>

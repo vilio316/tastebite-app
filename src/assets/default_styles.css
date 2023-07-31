@@ -29,6 +29,7 @@ a{
 }
 .selection{
     grid-template-columns: auto auto auto;
+    place-items: center;
 }
 .footp{
     width: 50%;
