@@ -17,9 +17,10 @@ function App(){
     useEffect(()=> randomMeal() ,[])
     return(
       <>
+       <p className="mega">Meal of the Day</p>
       <div className="grid card">
         <div className="grid" style={{placeItems:"center"}}>
-        <img src={`${random[1]}`} alt={`${random[0]}`} className="foodshot"></img>
+        <img src={`${random[1]}`} alt={`${random[0]}`} ></img>
         </div>
         <div>
         <p className="mega"><a href={`/recipes/random/${random[2]}`}>{random[0]}</a></p>
@@ -38,8 +39,8 @@ function App(){
       let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
       let searchURL = `${baseURL}filter.php?c=`
       fetch(`${searchURL}${cat}`).then((res)=> res.json()).then((data_cats)=>{ 
-      let first_data = data_cats.meals[3];
-      let second_data = data_cats.meals[1];
+      let first_data = data_cats.meals[1];
+      let second_data = data_cats.meals[0];
       let third_data = data_cats.meals[2];
       changeFirst([...first, first_data.strMeal, first_data.strMealThumb, first_data.idMeal])
       changeSecond([...second, second_data.strMeal, second_data.strMealThumb, second_data.idMeal])

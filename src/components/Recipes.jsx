@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 let baseURL = `https://www.themealdb.com/api/json/v1/1/`;
 let categoryURL = `${baseURL}filter.php?c=`
 let searchURL = `${baseURL}search.php?s=`
 function RecipeSearch(){
     let leet = useParams();
-    console.table(leet);
     const flight = useLoaderData();
-    console.log(flight);
     const jaxyy= flight.length;
 
     function SearchResults(props){
@@ -15,7 +13,7 @@ function RecipeSearch(){
         return(
             <div className="grid five_cols">
             {array.map((photo) => <div key={photo.idMeal} className="meal_card grid centered">
-                <img src={photo.strMealThumb} alt={`${photo.strMeal}`} className="foodshot results"/>
+                <img src={photo.strMealThumb} alt={`${photo.strMeal}`} className="results"/>
                 <p><a className="link" href={`./${leet.search}/${photo.idMeal}`}>{photo.strMeal}</a></p>
                 </div>)}
             
@@ -36,18 +34,18 @@ export default RecipeSearch;
 
 export function CategorySearch(){
     let leet = useParams();
-    console.table(leet);
     const flight = useLoaderData();
-    console.log(flight);
+    const useNav = useNavigate()
     const jaxyy= flight.length;
 
     function SearchResults(props){
         let array = props.input;
         return(
             <div className="grid five_cols">
-            {array.map((photo) => <div key={photo.idMeal} className="meal_card">
-                <div className="image_holder">
-                <a href={`/recipes/${leet.categ}/${photo.idMeal}`} className="block"><img src={photo.strMealThumb} alt={`${photo.strMeal}`} loading="lazy" className={`foodshot`}   width={"80%"}/></a>
+            {array.map((photo) => 
+            <div key={photo.idMeal} className="meal_card">
+                <div className="image_holder" onClick={()=> useNav(`/recipes/${leet.categ}/${photo.idMeal}`)}>
+                <img src={photo.strMealThumb} alt={`${photo.strMeal}`} loading="lazy" className={`foodshot`} />
                 </div>
                 <a className={`link`} href={`/recipes/${leet.categ}/${photo.idMeal}`}>{photo.strMeal}</a>
                 </div>)}
@@ -71,28 +69,56 @@ return(
         let recipe_info = recipe_inf.meals[0]
         console.log(recipe_info)
         let ingredients = []; 
+        let ing_measure = [];
         for(let ing_max = 1; ing_max < 20; ing_max++){
             if(recipe_info[`strIngredient${ing_max}`] !== null){
-            if(recipe_info[`strIngredient${ing_max}`].length > 0   && recipe_info[`strMeasure${ing_max}`].length > 0 ){
-            ingredients.push(`${recipe_info[`strIngredient${ing_max}`]} , 
-            (${recipe_info[`strMeasure${ing_max}`]})`)
+            if(recipe_info[`strIngredient${ing_max}`].length > 0){
+            ingredients.push(`${recipe_info[`strIngredient${ing_max}`]}`)
             }
         }
         }
+        for(let i = 1; i < 20; i++){
+            if(recipe_info[`strMeasure${i}`] && parseInt(recipe_info[`strMeasure${i}`])){
+                ing_measure.push(recipe_info[`strMeasure${i}`])
+            }
+        }
+        console.log(ing_measure)
         return(
             <>
             <div className="grid two_cols" style={{boxShadow: "0.5rem 0.5rem #e3f1ff", borderRadius: "1rem", backgroundColor: "#ffd7C9"}}>
                 <div className="grid centered">
-                    <img src={recipe_info.strMealThumb} width={"80%"} className="foodshot"/>
+                    <img src={recipe_info.strMealThumb} width={"80%"} className="foodshot_results"/>
                 </div>
                 <div className="food-text">
                     <p className="mealname_bold">{`${recipe_info.strMeal}`}</p>
-                    <p style={{fontSize : "1.75rem", fontWeight: "bold", margin: "0.75rem 0"}}>Ingredients</p>
-                    <ul>
-                    {ingredients.map((ingredient)=> 
-                    <li key={ingredient.toLowerCase()} style={{fontSize : "1.5rem"}}>{ingredient}</li>
+                    <p style={{fontSize : "1.75rem", fontWeight: "bold", margin: "0.75rem 0", textDecoration:"underline"}}>Ingredients</p>
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns:"auto auto",
+                        gap: "0.5rem"
+                    }}>
+                        
+                        <div style={{
+                            borderRight:"2px solid black"
+                        }}>
+                    <span className="table_head">Ingredients</span>
+                    {ingredients.map((ingredient)=>( 
+                    <li key={ingredient.toLowerCase()} style={{fontSize : "1.5rem"}}>{ingredient}
+                    </li>
+                    )
                     )}
-                    </ul>
+                    </div>
+
+                    <div>
+                    <span className="table_head">Quantity</span>
+                    {ing_measure.map((ing) => (
+                        <span style={{
+                            display: "block",
+                            fontSize: '1.5rem'
+                        }}>{ing}</span>
+                    ))}
+                    </div>
+                    </div>
                 </div>
             </div>
                 <div>
@@ -146,7 +172,9 @@ export function RecipesHome(){
         <div className="grid image_holder">
         <img src={recState[0]} alt={ingr} className="foodshot" loading="lazy"/>
         </div>
+        <p>
         <a className="link" href={`/recipes/categories/${ingr}`}>{ingr}</a>
+        </p>
         </div>
         </>
     )
