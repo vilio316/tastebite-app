@@ -114,7 +114,7 @@ return(
                     {ing_measure.map((ing) => (
                         <span style={{
                             display: "block",
-                            fontSize: '1.5rem'
+                            fontSize: '0.75rem',
                         }}>{ing}</span>
                     ))}
                     </div>
