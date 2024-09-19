@@ -32,7 +32,7 @@ function Header(){
             />
         <div className="grid" style={{gridTemplateColumns: "auto auto"}}>
         <button className=" search_button"
-        style={{borderRadius: "1rem", placeSelf:"center", border: "none", color: "white", backgroundColor:"#ff642f", width:"75%"}}><a href={`/recipes/${search_input}`}>Search</a></button>
+        style={{borderRadius: "2.5rem", placeSelf:"center", border: "none", color: "white", backgroundColor:"#ff642f", width:"80%"}}><a href={`/recipes/${search_input}`}>Search</a></button>
         </div>
     </div>
  </div>

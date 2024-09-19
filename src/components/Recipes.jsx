@@ -114,7 +114,11 @@ return(
                     {ing_measure.map((ing) => (
                         <span style={{
                             display: "block",
-                            fontSize: '0.75rem',
+                            fontSize: '1.5rem',
+                            width: 95%,
+                            overflow: "hidden",
+                            textOverflow:"ellipsis",
+                            whiteSpace:"nowrap"
                         }}>{ing}</span>
                     ))}
                     </div>
