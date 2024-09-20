@@ -78,11 +78,11 @@ return(
         }
         }
         for(let i = 1; i < 20; i++){
-            if(recipe_info[`strMeasure${i}`] && parseInt(recipe_info[`strMeasure${i}`])){
+            if(recipe_info[`strMeasure${i}`]){
                 ing_measure.push(recipe_info[`strMeasure${i}`])
             }
         }
-        console.log(ing_measure)
+
         return(
             <>
             <div className="grid two_cols" style={{boxShadow: "0.5rem 0.5rem #e3f1ff", borderRadius: "1rem", backgroundColor: "#ffd7C9"}}>
@@ -91,43 +91,23 @@ return(
                 </div>
                 <div className="food-text">
                     <p className="mealname_bold">{`${recipe_info.strMeal}`}</p>
-                    <p style={{fontSize : "1.75rem", fontWeight: "bold", margin: "0.75rem 0", textDecoration:"underline"}}>Ingredients</p>
-                    <div style={{
-                        display: "grid",
-                        gridTemplateColumns:"auto auto",
-                        gap: "0.5rem"
-                    }}>
-                        
-                        <div style={{
-                            borderRight:"2px solid black"
-                        }}>
-                    <span className="table_head">Ingredients</span>
+                    <p style={{fontSize : "1.75rem", fontWeight: "bold", margin: "0.75rem 0", textDecoration:"underline"}}>Ingredients</p>                        
+                        <div>
                     {ingredients.map((ingredient)=>( 
-                    <li key={ingredient.toLowerCase()} style={{fontSize : "1.5rem"}}>{ingredient}
+                    <li key={ingredient.toLowerCase()} style={{fontSize : "1.5rem"}}>{ingredient} {
+                        parseInt(ing_measure[ingredients.indexOf(ingredient)]) ? 
+                        `- ${ing_measure[ingredients.indexOf(ingredient)]}`:
+                            ""
+                        }
                     </li>
                     )
                     )}
                     </div>
-
-                    <div>
-                    <span className="table_head">Quantity</span>
-                    {ing_measure.map((ing) => (
-                        <span style={{
-                            display: "block",
-                            fontSize: '1.5rem',
-                            width: "95%",
-                            overflow: "hidden",
-                            textOverflow:"ellipsis",
-                            whiteSpace:"nowrap"
-                        }}>{ing}</span>
-                    ))}
-                    </div>
                     </div>
                 </div>
-            </div>
-                <div>
+                <div className="grid">
                     <p style={{fontSize:"1.5rem"}}><u>Instructions</u></p>
-                    <p className="instructions">{recipe_info.strInstructions}</p>
+                    <pre style={{padding:"0 0.5rem", textAlign:"justify", whiteSpace:"pre-wrap", justifySelf:"center"}} className="instructions">{recipe_info.strInstructions}</pre>
                 </div>
             </>
         )
